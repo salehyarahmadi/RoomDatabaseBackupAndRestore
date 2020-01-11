@@ -14,7 +14,7 @@ import ir.androidexception.sqlitebackupandrestoreexample.database.entity.User;
         User.class,
         Category.class,
         Product.class
-}, version = 1)
+}, version = 2)
 public abstract class MyDatabase extends RoomDatabase {
 
     public abstract UserDao userDao();

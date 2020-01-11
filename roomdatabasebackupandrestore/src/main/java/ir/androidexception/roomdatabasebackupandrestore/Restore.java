@@ -13,6 +13,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class Restore {
+    private static String STRING_FOR_NULL_VALUE = "!!!string_for_null_value!!!";
+
     public static class Init{
         private RoomDatabase database;
         private String backupFilePath;
@@ -76,7 +78,13 @@ public class Restore {
                         query = query.concat(") ");
                         query = query.concat("values(");
                         for(String column : row.keySet()){
-                            query = query.concat("\'").concat(row.get(column).getAsString()).concat("\'").concat(",");
+                            String value = row.get(column).getAsString();
+                            if(value.equals(STRING_FOR_NULL_VALUE)){
+                                query = query.concat("NULL").concat(",");
+                            }
+                            else{
+                                query = query.concat("\'").concat(value).concat("\'").concat(",");
+                            }
                         }
                         query = query.substring(0,query.lastIndexOf(","));
                         query = query.concat(")");

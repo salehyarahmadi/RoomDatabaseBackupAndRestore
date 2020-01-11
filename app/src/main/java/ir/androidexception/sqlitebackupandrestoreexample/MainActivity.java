@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         database.userDao().insert(new User("Laureen","Vallentin","Laureen Profile Url"));
         database.userDao().insert(new User("Zachery","Tremmel","Zachery Profile Url"));
         database.userDao().insert(new User("Caresa","Wickett","Caresa Profile Url"));
-        database.userDao().insert(new User("Iorgos","Annies","Iorgos Profile Url"));
+        database.userDao().insert(new User(null,null,"Iorgos Profile Url"));
         database.categoryDao().insert(new Category("10001" , "sandwich"));
         database.categoryDao().insert(new Category("10002" , "burger"));
         database.productDao().insert(new Product("20001","sandwich 1" , "10$", 1));

@@ -19,6 +19,7 @@ public class Backup {
     private static boolean isInSQLiteTables(String table){
         return SQLITE_TABLES.contains(table);
     }
+    private static String STRING_FOR_NULL_VALUE = "!!!string_for_null_value!!!";
 
     public static class Init{
         private RoomDatabase database;
@@ -94,7 +95,7 @@ public class Backup {
                             for(int i=0; i<columnCount; i++){
                                 String columnName = rowsCursor.getColumnName(i);
                                 if(columnName.equals(aic)) continue;
-                                rowBuilder.putItem(columnName,(rowsCursor.getString(i)!=null) ? rowsCursor.getString(i) : "");
+                                rowBuilder.putItem(columnName,(rowsCursor.getString(i)!=null) ? rowsCursor.getString(i) : STRING_FOR_NULL_VALUE);
                             }
                             rows.add(rowBuilder.build());
                         } while (rowsCursor.moveToNext());
