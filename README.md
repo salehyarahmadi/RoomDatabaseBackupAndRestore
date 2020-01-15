@@ -19,52 +19,57 @@ The simplest way to use this library is to add the library as dependency to your
 
 Add it in your root build.gradle at the end of repositories:
 
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+```gradle
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
 	}
+}
+```
 
 Step 2. Add the dependency
 
-	dependencies {
-	        implementation 'com.github.salehyarahmadi:RoomDatabaseBackupAndRestore:v1.0.1'
-	}
+```gradle
+dependencies {
+	implementation 'com.github.salehyarahmadi:RoomDatabaseBackupAndRestore:v1.0.1'
+}
+```
 
 ## Usage
 
 ### Backup
 
-
-    new Backup.Init()
-                .database(database)
-                .path("path-to-save-backup-file")
-                .fileName("filename.txt")
-                .secretKey("your-secret-key") //optional
-                .onWorkFinishListener(new OnWorkFinishListener() {
-                    @Override
-                    public void onFinished(boolean success, String message) {
-                        // do anything
-                    }
-                })
-                .execute();
+```java
+new Backup.Init()
+    .database(database)
+    .path("path-to-save-backup-file")
+    .fileName("filename.txt")
+    .secretKey("your-secret-key") //optional
+    .onWorkFinishListener(new OnWorkFinishListener() {
+         @Override
+         public void onFinished(boolean success, String message) {
+             // do anything
+         }
+     })
+     .execute();
+```
 
 ### Restore
 
-
-    new Restore.Init()
-                .database(database)
-                .backupFilePath("path-to-backup-file/filename.txt")
-                .secretKey("your-secret-key") // if your backup file is encrypted, this parameter is required
-                .onWorkFinishListener(new OnWorkFinishListener() {
-                    @Override
-                    public void onFinished(boolean success, String message) {
-                        // do anything
-                    }
-                })
-                .execute();
-
+```java
+new Restore.Init()
+    .database(database)
+    .backupFilePath("path-to-backup-file/filename.txt")
+    .secretKey("your-secret-key") // if your backup file is encrypted, this parameter is required
+    .onWorkFinishListener(new OnWorkFinishListener() {
+        @Override
+        public void onFinished(boolean success, String message) {
+            // do anything
+        }
+    })
+    .execute();
+```
 
    
 
