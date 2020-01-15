@@ -1,6 +1,6 @@
 Room Database Backup And Restore ![API](https://img.shields.io/badge/API-17%2B-brightgreen.svg?style=flat) [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 ===================
-If you are using from room database, you can use from this library for full backup and restore. Also you can encrypt output file with your desired secret key.
+If you are using room database, you can use this library for full backup and restore. Also you can encrypt output file with your desired secret key.
 
 
 **This library is also available at JitPack.io**
